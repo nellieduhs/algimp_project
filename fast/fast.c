@@ -13,7 +13,7 @@ bool fm(size_t rows, size_t cols, signed char a[rows][cols], signed char c[rows]
 	int n1 = 0;
 	int n2 = 0;
 
-	//Looking at last column of A. Find
+	//Looking at last row of A. Find
 	//number of postive elements, n1
 	//number of negative + positive elements, n2
 	for (int i = 0; i < s; i++){

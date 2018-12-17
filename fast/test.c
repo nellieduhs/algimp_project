@@ -15,7 +15,7 @@
 
 #include "error.h"
 
-bool fm(size_t rows, size_t cols, signed char a[rows][cols], signed char c[cols]);
+bool fm2(size_t rows, size_t cols, signed char a[rows][cols], signed char c[cols]);
 
 int main(int argc, char** argv)
 {
@@ -31,9 +31,9 @@ int main(int argc, char** argv)
   char		cfilename[100];
   char		ofilename[100];
   char		output[100];
-  snprintf(afilename, sizeof afilename, "A1.3");
-  snprintf(cfilename, sizeof cfilename, "c1.3");
-  snprintf(ofilename, sizeof ofilename, "output1.3");
+  snprintf(afilename, sizeof afilename, "A2.10");
+  snprintf(cfilename, sizeof cfilename, "c2.10");
+  snprintf(ofilename, sizeof ofilename, "output2.10.txt");
 
   chdir("input");
   afile = fopen(afilename, "r");
@@ -55,6 +55,8 @@ int main(int argc, char** argv)
   memset(a, 0, sizeof a);
   memset(c, 0, sizeof c);
 
+  printf("a:\n");
+
   for (int i = 0; i < rows; ++i) {
     for (int j = 0; j < cols; ++j) {
       n = fscanf(afile, "%d", &x);
@@ -71,16 +73,18 @@ int main(int argc, char** argv)
   if (n != 1)
     error("reading vector size of %s failed", cfilename);
 
-  for (int i = 0; i < cols; ++i) {
+  printf("c:\n");
+  for (int i = 0; i < rows; ++i) {
     fscanf(cfile, "%d", &x);
     c[i] = x;
+    printf("%d\n",c[i]);
   }
 
 
   fclose(afile);
   fclose(cfile);
 
-  bool res = fm(rows, cols, a, c);
+  bool res = fm2(rows, cols, a, c);
 
   fgets(output, sizeof output, ofile);
   fclose(ofile);
@@ -89,5 +93,6 @@ int main(int argc, char** argv)
   printf("%s\n", res ? "true" : "false");
   printf("%s\n", differ ? "INCORRECT" : "CORRECT");
 
+  return 0;
 
 }
