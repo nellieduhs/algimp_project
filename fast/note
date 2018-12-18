@@ -1,0 +1,4 @@
+gcc version 6.3.0 20170516 (Debian 6.3.0-18+deb9u1) 
+
+CFLAGS = -g -Wall -Wextra -std=c11 -Wno-parentheses
+

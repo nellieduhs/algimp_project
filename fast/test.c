@@ -15,7 +15,7 @@
 
 #include "error.h"
 
-bool fm2(size_t rows, size_t cols, signed char a[rows][cols], signed char c[cols]);
+bool fm(size_t rows, size_t cols, signed char a[rows][cols], signed char c[cols]);
 
 int main(int argc, char** argv)
 {
@@ -50,7 +50,7 @@ int main(int argc, char** argv)
   }
 
   signed char	a[rows][cols];
-  signed char	c[cols];
+  signed char	c[rows];
 
   memset(a, 0, sizeof a);
   memset(c, 0, sizeof c);
@@ -84,7 +84,7 @@ int main(int argc, char** argv)
   fclose(afile);
   fclose(cfile);
 
-  bool res = fm2(rows, cols, a, c);
+  bool res = fm(rows, cols, a, c);
 
   fgets(output, sizeof output, ofile);
   fclose(ofile);
