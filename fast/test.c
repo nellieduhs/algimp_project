@@ -31,9 +31,9 @@ int main(int argc, char** argv)
   char		cfilename[100];
   char		ofilename[100];
   char		output[100];
-  snprintf(afilename, sizeof afilename, "A2.10");
-  snprintf(cfilename, sizeof cfilename, "c2.10");
-  snprintf(ofilename, sizeof ofilename, "output2.10.txt");
+  snprintf(afilename, sizeof afilename, "A3.37");
+  snprintf(cfilename, sizeof cfilename, "c3.37");
+  snprintf(ofilename, sizeof ofilename, "output3.37.txt");
 
   chdir("input");
   afile = fopen(afilename, "r");
